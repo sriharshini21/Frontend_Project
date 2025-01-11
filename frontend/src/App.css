@@ -1,0 +1,179 @@
+/* App.css */
+
+.app {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.app-header {
+  background-color: #4CAF50;
+  padding: 1rem;
+  color: white;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 1rem;
+}
+
+.home-page {
+  padding: 20px;
+}
+
+.home-content {
+  margin: 20px;
+}
+
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  /* Remove position: fixed; */ 
+}
+/* App.css */
+
+.app {
+  font-family: Arial, sans-serif;
+  display: flex; /* Use flexbox for easier layout */
+  flex-direction: column; /* Arrange elements vertically */
+  min-height: 100vh; /* Make the app container fill the viewport height */
+  width: 100%; 
+}
+
+.app-header {
+  background-color: #4CAF50;
+  padding: 1rem;
+  color: white;
+  width: 100%; /* Make the header's width 100% */
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex; /* Use flexbox for better layout */
+  justify-content: space-between; /* Align header title and navigation */
+  align-items: center; /* Center content vertically within the header */
+}
+
+.carousel-root {
+  width: 100%; /* Make the carousel full width */
+  max-width: 800px; /* Set a maximum width for the carousel */
+  margin: 20px auto; /* Center the carousel horizontally */
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+.top-destinations {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* .destination-images {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+} */
+
+.destination-images img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+.destination-images img:hover {
+  transform: scale(1.1);
+}
+
+
+/* ... (Your existing Top Destinations CSS) ... */
+
+/* ... (Your existing Top Destinations CSS) ... */
+
+.unique-properties {
+  margin-top: 30px;
+  text-align: center;
+  position: relative; /* For positioning arrows */
+}
+.destination-images {
+  display: flex;
+  justify-content: space-around; /* Maintain even spacing */
+  margin-top: 10px;
+  gap: 10px; /* Add gap between images */
+}
+
+.property-cards {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  gap: 20px; /* Add gap between property cards */
+}
+
+/* ... (Rest of your property-card and rating styles) ... */
+
+.arrow-left,
+.arrow-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.arrow-left {
+  left: 10px;
+}
+
+.arrow-right {
+  right: 10px;
+}
+
+.home-page {
+  padding: 20px;
+  background-image: url('https://www.google.com/imgres?q=himalayas&imgurl=https%3A%2F%2Fhimalayashelter.com%2Fwp-content%2Fuploads%2F2024%2F01%2FNorth-Face-Mount-Everest-Tibet-Autonomous-Region-Britannica-1-1024x562.webp&imgrefurl=https%3A%2F%2Fhimalayashelter.com%2Fhimalaya-ranges%2F&docid=7QyDtYq1pyxCIM&tbnid=KfHS12YFI_G_0M&vet=12ahUKEwiP3eHPt-2KAxXc-jgGHZEzGh0QM3oECEUQAA..i&w=1024&h=562&hcb=2&ved=2ahUKEwiP3eHPt-2KAxXc-jgGHZEzGh0QM3oECEUQAA'); /* Assuming image2.jpg is in the 'assets/images' folder */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+}
+
+.property-list {
+  display: flex; /* Arrange properties horizontally */
+  flex-wrap: wrap; /* Allow properties to wrap to the next line */
+  justify-content: space-between; /* Space properties evenly */
+}
+
+.property-item {
+  width: 250px; /* Adjust width as needed */
+  margin: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center; 
+}
+
+.property-item img {
+  width: 100%;
+  height: 150px; /* Adjust height as needed */
+  object-fit: cover;
+  border-radius: 5px;
+}
+.property-item a {
+  text-decoration: none;
+  color: blue; 
+  font-weight: bold;
+}
+
+/* In your App.css or a separate stylesheet */
