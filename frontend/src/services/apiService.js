@@ -115,3 +115,102 @@ export const getAllFlights = async () => {
     throw error;
   }
 };
+
+
+// --- Train APIs ---
+export const getAllTrains = async () => {
+  try {
+    const response = await apiClient.get("/trains");
+    console.log("All Trains Response:", response.data); // Log the API response for debugging
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching trains:", error);
+    throw error;
+  }
+};
+
+export const getTrainById = async (id) => {
+  try {
+    const response = await apiClient.get(`/trains/${id}`);
+    console.log("Train Details Response:", response.data); // Log the API response for debugging
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching train:", error);
+    throw error;
+  }
+};
+
+export const createTrainBooking = async (trainId, departureDate, returnDate) => {
+  try {
+    const response = await apiClient.post(
+      "/trains/bookings",
+      null,
+      { params: { trainId, departureDate, returnDate } }
+    );
+    console.log("Create Train Booking Response:", response.data); // Log the response for debugging
+    return response.data;
+  } catch (error) {
+    console.error("Error creating train booking:", error);
+    throw error;
+  }
+};
+
+export const getTrainBookings = async () => {
+  try {
+    const response = await apiClient.get("/trains/bookings");
+    console.log("Train Bookings Response:", response.data); // Log the response for debugging
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching train bookings:", error);
+    throw error;
+  }
+};
+
+export const deleteTrainBooking = async (id) => {
+  try {
+    await apiClient.delete(`/trains/bookings/${id}`);
+    console.log(`Deleted train booking with ID: ${id}`); // Log success for debugging
+  } catch (error) {
+    console.error("Error deleting train booking:", error);
+    throw error;
+  }
+};
+
+// --- Bus APIs ---
+export const getAllBuses = async () => {
+  try {
+    const response = await apiClient.get("/buses");
+    console.log("All Buses Response:", response.data); // Log the API response for debugging
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching buses:", error);
+    throw error;
+  }
+};
+
+export const getBusById = async (id) => {
+  try {
+    const response = await apiClient.get(`/buses/${id}`);
+    console.log("Bus Details Response:", response.data);  // Log the response for debugging
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching bus:", error);
+    throw error;
+  }
+};
+
+
+export const createBusBooking = async (busId, departureDate, returnDate) => {
+  try {
+    const response = await apiClient.post(
+      "/buses/bookings",
+      null,
+      { params: { busId, departureDate, returnDate } }
+    );
+    console.log("Create Bus Booking Response:", response.data); // Log the response for debugging
+    return response.data;
+  } catch (error) {
+    console.error("Error creating bus booking:", error);
+    throw error;
+  }
+};
