@@ -1,13 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { getAllProperties } from '../services/apiService';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
-import '../App.css';
+import React, { useState, useEffect } from "react";
+import { getAllProperties } from "../services/apiService";
+import { Link } from "react-router-dom";
+import "../App.css";
 
 const PropertyComponent = () => {
   const [properties, setProperties] = useState([]);
 
   const fetchProperties = async () => {
     try {
+      const token = localStorage.getItem("jwtToken");
+      if (!token) {
+        console.warn("No token found. Redirecting to login...");
+        window.location.href = "/login"; // Redirect to login page
+        return;
+      }
       const response = await getAllProperties();
       setProperties(response.data);
     } catch (error) {
@@ -29,8 +35,7 @@ const PropertyComponent = () => {
             <h4>{property.name}</h4>
             <p>{property.location}</p>
             <p>Price per Night: ${property.pricePerNight.toFixed(2)}</p>
-            {/* Link to Property Details */}
-            <Link to={`/bookings/${property.id}`}>View Details</Link>
+            <Link to={`/properties/${property.id}`}>View Details</Link>
           </div>
         ))}
       </div>

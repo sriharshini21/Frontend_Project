@@ -1,58 +1,85 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:8080/api"; // Replace with your backend base URL
+// Base URL for API
+const API_BASE_URL = "http://localhost:8080/api";
 
-// Bookings API
-export const createBooking = (propertyId, startDate, endDate) => {
-  return axios.post(`http://localhost:8080/api/bookings`, null, {
-    params: { propertyId, startDate, endDate },
-  });
+// Utility function to get the token from localStorage
+const getToken = () => localStorage.getItem("jwtToken");
+
+// Create an Axios instance with default settings
+const apiClient = axios.create({
+  baseURL: API_BASE_URL,
+});
+
+// Interceptor to include the token in every request
+apiClient.interceptors.request.use(
+  (config) => {
+    const token = getToken();
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
+// --- User APIs ---
+export const loginUser = async (email, password) => {
+  return await apiClient.post("/users/login", { email, password });
 };
 
-export const getAllBookings = () => {
-  return axios.get(`${API_BASE_URL}/bookings`);
+export const getAllUsers = async () => {
+  return await apiClient.get("/users");
 };
 
-// Properties API
-export const createProperty = (property, userId) => {
-  return axios.post(`${API_BASE_URL}/properties`, property, {
+export const deleteUser = async (id) => {
+  return await apiClient.delete(`/users/${id}`);
+};
+
+// --- Property APIs ---
+export const getAllProperties = async () => {
+  return await apiClient.get("/properties");
+};
+
+export const getPropertyById = async (id) => {
+  return await apiClient.get(`/properties/${id}`);
+};
+
+export const createProperty = async (property, userId) => {
+  return await apiClient.post("/properties", property, {
     params: { UserId: userId },
   });
 };
 
-export const getAllProperties = () => {
-  return axios.get(`http://localhost:8080/api/properties`);
+// --- Booking APIs ---
+export const getAllBookings = async () => {
+  return await apiClient.get("/bookings");
 };
 
-// Users API
-export const getAllUsers = () => {
-  return axios.get(`${API_BASE_URL}/users`);
+export const getBookingById = async (id) => {
+  return await apiClient.get(`/bookings/${id}`);
 };
 
-export const deleteUser = (id) => {
-  return axios.delete(`${API_BASE_URL}/users/${id}`);
+export const createBooking = async (propertyId, startDate, endDate) => {
+  return await apiClient.post(
+    "/bookings",
+    null,
+    { params: { propertyId, startDate, endDate } }
+  );
 };
 
-export const getBookingById = (id) => {
-    return axios.get(`http://localhost:8080/api/bookings/${id}`);
+export const deleteBooking = async (id) => {
+  return await apiClient.delete(`/bookings/${id}`);
 };
 
-export const getPropertyById = async (id) => {
-  return await axios.get(`http://localhost:8080/api/properties/${id}`);
+// --- Error Handling ---
+export const handleApiError = (error) => {
+  console.error("API Error:", error);
+  if (error.response) {
+    console.error("Response Data:", error.response.data);
+    console.error("Response Status:", error.response.status);
+  }
+  throw error;
 };
-
-// export const getPropertyById = async (propertyId) => {
-//   try {
-//     const response = await axios.get(`http://localhost:8080/api/properties/${propertyId}`);
-//     return response.data; // Return specific property data
-//   } catch (error) {
-//     console.error('Error fetching property:', error);
-//     throw error;
-//   }
-//}
-
-// // Fetch Property by ID
-// export const getPropertyById = async (id) => {
-//   const response = await fetch(/api/properties/${id});
-//   return await response.json();
-// };

@@ -120,15 +120,15 @@ const HomePage = () => {
                   <p>Pleasant 814 reviews</p>
                 </div>
 
-                {/* <div className="property-card">
-                <img src={property4} alt="Novotel Imagicaa Khopoli" />
-                <h3>Novotel Imagicaa Khopoli</h3>
-                <p>India, Khopoli</p>
-                <div className="rating">
-                  <span>6.5</span>
-                  <p>Pleasant 814 reviews</p>
-                </div>
-              </div> */}
+                  {/* <div className="property-card">
+                  <img src={property4} alt="Novotel Imagicaa Khopoli" />
+                  <h3>Novotel Imagicaa Khopoli</h3>
+                  <p>India, Khopoli</p>
+                  <div className="rating">
+                    <span>6.5</span>
+                    <p>Pleasant 814 reviews</p>
+                  </div>
+                </div> */}
 
           
 

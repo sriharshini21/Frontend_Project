@@ -5,9 +5,9 @@ import PropertyComponent from "./components/PropertyComponent";
 import UserComponent from "./components/UserComponent";
 import HomePage from "./components/HomePage";
 import Header from "./components/Header";
-// import Footer from "./components/Footer";
 import PropertyDetailsComponent from "./components/PropertyDetailsComponent";
 import Login from "./components/Login";
+import Error from "./components/Error";
 
 const App = () => {
   return (
@@ -17,17 +17,16 @@ const App = () => {
 
         <main>
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<Login />} />
+            <Route path="/home" element={<HomePage />} />
             <Route path="/bookings" element={<BookingComponent />} />
             <Route path="/properties" element={<PropertyComponent />} />
             <Route path="/users" element={<UserComponent />} />
-            <Route path="/properties/:id" element={<PropertyDetailsComponent />} /> {/* Fix here */}
+            <Route path="/properties/:id" element={<PropertyDetailsComponent />} />
             <Route path="/bookings/:id" element={<BookingComponent />} />
-            <Route path="/login" element={<Login></Login>}></Route>
+            <Route path="/error" element={<Error />} />
           </Routes>
         </main>
-
-        {/* <Footer /> */}
       </div>
     </Router>
   );

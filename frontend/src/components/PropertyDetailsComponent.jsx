@@ -11,7 +11,7 @@ const PropertyDetailsComponent = () => {
     const fetchProperty = async () => {
       try {
         const response = await getPropertyById(id); // Fetch property by ID
-        setProperty(response); // Assuming response is the data object
+        setProperty(response.data); // Access the 'data' object from the response
       } catch (error) {
         setError('Error fetching property details. Please try again later.');
         console.error('Error fetching property:', error);
@@ -36,7 +36,7 @@ const PropertyDetailsComponent = () => {
       <img src={property.imageUrl} alt={property.name} />
       <p>Location: {property.location}</p>
       <p>
-        Price per Night: $
+        Price per Night: $ 
         {property.pricePerNight !== undefined && property.pricePerNight !== null
           ? property.pricePerNight.toFixed(2)
           : 'N/A'}
