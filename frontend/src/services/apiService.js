@@ -83,3 +83,35 @@ export const handleApiError = (error) => {
   }
   throw error;
 };
+// --- Flight Booking APIs ---
+export const getFlightById = async (id) => {
+  try {
+    const response = await apiClient.get(`/flights/${id}`);
+    console.log('API Response:', response.data); // Log the API response for debugging
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching flight:', error);
+    throw error;
+  }
+};
+export const createFlightBooking = async (flightId, departureDate, returnDate) => {
+  return await apiClient.post(
+    "/flight",
+    null,
+    { params: { flightId, departureDate, returnDate } }
+  );
+};
+export const getFlights = async () => {
+  return await apiClient.get('/flights');  // Make sure this matches your backend API endpoint
+};
+
+export const getAllFlights = async () => {
+  try {
+    const response = await apiClient.get('/flights');
+    console.log('All Flights Response:', response.data); // Log the API response for debugging
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching flights:', error);
+    throw error;
+  }
+};
