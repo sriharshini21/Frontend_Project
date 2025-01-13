@@ -1,90 +1,147 @@
-/* App.css */
-
+/* General App Layout */
 .app {
-  font-family: Arial, sans-serif;
-  text-align: center;
+  font-family: 'Open Sans', sans-serif; /* Use a modern, web-safe font */
+  display: flex; /* Use flexbox for easier layout */
+  flex-direction: column; /* Arrange elements vertically */
+  min-height: 100vh;
+  width: 100%;
+  background-color: #f4f4f4; /* Add a neutral background */
+  color: #333; /* Default text color */
 }
 
+/* Header */
 .app-header {
-  background-color: #4CAF50;
-  padding: 1rem;
+  background-color: #4CAF50; /* A pleasant green color */
+  padding: 1rem 2rem;
   color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 1.4rem; /* Increase font size slightly for a more prominent header */
+  margin-bottom: 10px; /* Add some spacing after the header */
+  border-bottom: 5px solid #2196F3; /* Add a solid blue bottom border for a decorative touch */
+}
+
+.app-header h1 {
+  font-size: 26px; /* Increase font size for a more prominent title */
+  font-weight: bold;
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Add a subtle shadow effect */
 }
 
 nav ul {
   list-style-type: none;
   padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px; /* Space out the navigation items */
 }
 
 nav ul li {
-  display: inline;
-  margin: 0 1rem;
+  display: inline-block;
 }
 
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #d4e157; /* Light green color on hover */
+}
+
+nav ul li a.active {
+  color: #FFEB3B; /* Yellow color for active link */
+  font-weight: bold;
+}
+
+/* Home Page */
 .home-page {
-  padding: 20px;
+  text-align: center; /* Center content horizontally */
+  padding: 40px 0; /* Increase vertical padding for better spacing */
 }
 
-.home-content {
-  margin: 20px;
+.home-page h2 {
+  font-size: 32px; /* Increase font size for a more prominent heading */
+  margin-bottom: 20px;
+  color: #4CAF50; /* Use the same green color as the header */
 }
 
-.footer {
-  background-color: #333;
-  color: white;
-  padding: 10px;
-  text-align: center;
-  /* Remove position: fixed; */ 
-}
-/* App.css */
-
-.app {
-  font-family: Arial, sans-serif;
-  display: flex; /* Use flexbox for easier layout */
-  flex-direction: column; /* Arrange elements vertically */
-  min-height: 100vh; /* Make the app container fill the viewport height */
-  width: 100%; 
+.home-page p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  line-height: 1.5; /* Improve readability */
 }
 
-.app-header {
-  background-color: #4CAF50;
-  padding: 1rem;
-  color: white;
-  width: 100%; /* Make the header's width 100% */
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  display: flex; /* Use flexbox for better layout */
-  justify-content: space-between; /* Align header title and navigation */
-  align-items: center; /* Center content vertically within the header */
+/* Hero Image (Optional) */
+.hero-image {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-bottom: 30px; /* Add spacing below the image */
 }
 
-.carousel-root {
-  width: 100%; /* Make the carousel full width */
-  max-width: 800px; /* Set a maximum width for the carousel */
-  margin: 20px auto; /* Center the carousel horizontally */
+.hero-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-footer {
-  background-color: #333;
-  color: white;
-  padding: 10px;
-  text-align: center;
-}
-.top-destinations {
-  text-align: center;
-  margin-top: 20px;
-}
-
-/* .destination-images {
+/* Property Cards */
+.property-list {
   display: flex;
-  justify-content: space-around;
-  margin-top: 10px;
-} */
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0;
+}
 
-.destination-images img {
-  width: 200px;
+.property-item {
+  width: 250px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+  /* Adjust font size for property cards */
+  font-size: 0.9rem; /* Adjust as needed */
+}
+
+.property-item img {
+  width: 100%;
   height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.property-item a {
+  text-decoration: none;
+  color: blue;
+  font-weight: bold;
+}
+
+/* Unique Properties Section */
+.unique-properties {
+  margin-top: 30px;
+  text-align: center;
+  position: relative;
+}
+
+/* Make destination images side by side */
+.destination-images {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Add some space between the images */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  margin-top: 20px; /* Add some top margin */
+}
+
+/* Adjust image styles */
+.destination-images img {
+  width: 100%; /* Adjust width so they fit side by side */
+  height: 200px; /* Maintain a consistent height */
   object-fit: cover;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -92,41 +149,16 @@ footer {
 }
 
 .destination-images img:hover {
-  transform: scale(1.1);
+  transform: scale(1.1); /* Slight zoom effect on hover */
 }
 
 
-/* ... (Your existing Top Destinations CSS) ... */
-
-/* ... (Your existing Top Destinations CSS) ... */
-
-.unique-properties {
-  margin-top: 30px;
-  text-align: center;
-  position: relative; /* For positioning arrows */
-}
-.destination-images {
-  display: flex;
-  justify-content: space-around; /* Maintain even spacing */
-  margin-top: 10px;
-  gap: 10px; /* Add gap between images */
-}
-
-.property-cards {
-  display: flex;
-  overflow-x: auto;
-  white-space: nowrap;
-  gap: 20px; /* Add gap between property cards */
-}
-
-/* ... (Rest of your property-card and rating styles) ... */
-
-.arrow-left,
-.arrow-right {
+/* Arrow buttons for scrolling property cards */
+.arrow-left, .arrow-right {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  background-color: rgba(0, 0, 0, 0.5);
   color: white;
   padding: 10px;
   border: none;
@@ -141,39 +173,444 @@ footer {
   right: 10px;
 }
 
-.home-page {
-  padding: 20px;
-  background-image: url('https://www.google.com/imgres?q=himalayas&imgurl=https%3A%2F%2Fhimalayashelter.com%2Fwp-content%2Fuploads%2F2024%2F01%2FNorth-Face-Mount-Everest-Tibet-Autonomous-Region-Britannica-1-1024x562.webp&imgrefurl=https%3A%2F%2Fhimalayashelter.com%2Fhimalaya-ranges%2F&docid=7QyDtYq1pyxCIM&tbnid=KfHS12YFI_G_0M&vet=12ahUKEwiP3eHPt-2KAxXc-jgGHZEzGh0QM3oECEUQAA..i&w=1024&h=562&hcb=2&ved=2ahUKEwiP3eHPt-2KAxXc-jgGHZEzGh0QM3oECEUQAA'); /* Assuming image2.jpg is in the 'assets/images' folder */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed; 
+/* Login Form */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
 }
 
-.property-list {
-  display: flex; /* Arrange properties horizontally */
-  flex-wrap: wrap; /* Allow properties to wrap to the next line */
-  justify-content: space-between; /* Space properties evenly */
+.login-fieldset {
+  background-color: white;
+  border-radius: 8px;
+  padding: 30px;
+  width: 300px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.property-item {
-  width: 250px; /* Adjust width as needed */
-  margin: 10px;
+.login-legend {
+  font-size: 24px;
+  text-align: center;
+  color: #4CAF50;
+  margin-bottom: 20px;
+}
+
+.login-input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.login-input:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 5px rgba(0, 128, 0, 0.2);
+}
+
+.login-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.login-button:hover {
+  background-color: #45a049;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .app-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .app-header h1 {
+    font-size: 20px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  nav ul li a {
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  nav ul li a:hover {
+    background-color: #388e3c;
+  }
+}
+
+@media (max-width: 600px) {
+  .login-fieldset {
+    width: 80%;
+    padding: 20px;
+  }
+}
+
+/* Image Slideshow Container */
+.image-slideshow-container {
+  width: 100%;
+  max-width: 800px; /* Limit the width of the slideshow */
+  margin: 0 auto; /* Center the slideshow */
+  position: relative;
+}
+
+.image-slideshow-images {
+  display: flex;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  gap: 10px; /* Space between images */
+  padding-bottom: 20px; /* Space between images and navigation */
+}
+
+.image-slideshow-images img {
+  width: 100%; /* Make images responsive */
+  max-width: 250px; /* Set a maximum width for the images */
+  height: auto;
+  object-fit: cover; /* Ensure images cover the area */
+  border-radius: 5px;
+  transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.image-slideshow-images img:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Navigation arrows */
+.arrow-left, .arrow-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.arrow-left {
+  left: 10px;
+}
+
+.arrow-right {
+  right: 10px;
+}
+
+/* Image Slideshow Container */
+.image-slideshow-container {
+  width: 100%;
+  max-width: 600px; /* Reduce the maximum width */
+  margin: 0 auto; /* Center the slideshow */
+  position: relative;
+}
+
+/* Image Slideshow Images */
+.image-slideshow-images {
+  display: flex;
+  justify-content: center; /* Center the images */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  gap: 10px; /* Space between images */
+  padding-bottom: 20px; /* Space between images and navigation */
+}
+
+/* Image Styles */
+.image-slideshow-images img {
+  width: 80%; /* Reduce image width */
+  max-width: 180px; /* Set a max width for the images */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensure images cover the area */
+  border-radius: 5px;
+  transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.image-slideshow-images img:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Navigation Arrows */
+.arrow-left, .arrow-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.arrow-left {
+  left: 10px;
+}
+
+.arrow-right {
+  right: 10px;
+}
+
+/* Property Cards Container */
+.property-cards {
+  display: flex; /* Use flexbox to align items horizontally */
+  justify-content: space-between; /* Space items evenly */
+  gap: 20px; /* Add some space between the cards */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+/* Individual Property Card */
+.property-card {
+  width: 22%; /* Adjust width to allow 4 cards in a row */
   border: 1px solid #ccc;
   padding: 10px;
-  text-align: center; 
+  text-align: center;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.property-item img {
-  width: 100%;
-  height: 150px; /* Adjust height as needed */
-  object-fit: cover;
+.property-card img {
+  width: 100%; /* Make the image fill the card */
+  height: 150px; /* Fixed height for uniformity */
+  object-fit: cover; /* Ensure the image covers the entire area */
   border-radius: 5px;
 }
-.property-item a {
-  text-decoration: none;
-  color: blue; 
-  font-weight: bold;
+
+.property-card h3 {
+  margin-top: 10px;
+  font-size: 18px;
 }
 
-/* In your App.css or a separate stylesheet */
+.property-card .rating {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+.property-card .rating span {
+  font-weight: bold;
+  color: #4CAF50; /* Green for the rating */
+}
+
+/* Arrow buttons for scrolling property cards */
+.arrow-left, .arrow-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.arrow-left {
+  left: 10px;
+}
+
+.arrow-right {
+  right: 10px;
+}
+
+/* Photo Gallery Section */
+.photo-gallery {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.photo-gallery h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.photo-gallery p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.gallery-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+  gap: 20px;
+  justify-items: center;
+}
+
+.gallery-images a {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.gallery-images a:hover {
+  transform: scale(1.05);
+}
+
+.gallery-images img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-images a:hover img {
+  opacity: 0.8;
+}
+
+/* Optional: Add a caption overlay on hover */
+.gallery-images a::after {
+  content: 'View More';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px 20px;
+  border-radius: 4px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-images a:hover::after {
+  opacity: 1;
+}
+
+/* About Us Section */
+.about-us {
+  padding: 40px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.about-us h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.about-us p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.core-values {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.core-values .value {
+  width: 200px;
+}
+
+.core-values .value h4 {
+  font-size: 1.4rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.core-values .value p {
+  font-size: 1rem;
+  color: #555;
+}
+
+h3 {
+  font-size: 2rem;
+  margin-top: 40px;
+  color: #333;
+}
+
+ul {
+  text-align: left;
+  margin: 20px auto;
+  max-width: 600px;
+  list-style-type: disc;
+}
+
+ul li {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+/* ContactUs page styling */
+.contact-us {
+  padding: 40px;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-us h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.contact-us form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-us label {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.contact-us input, .contact-us textarea {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.contact-us button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.contact-us button:hover {
+  background-color: #45a049;
+}
+

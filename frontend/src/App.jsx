@@ -17,6 +17,7 @@ import TrainBookingComponent from "./components/TrainBookingComponent";
 import BusComponent from "./components/BusComponent";
 import BusDetailsComponent from "./components/BusDetailsComponent";
 import BusBookingComponent from "./components/BusBookingComponent";
+import ContactUs from "./components/ContactUs";
 
 const App = () => {
   return (
@@ -37,7 +38,7 @@ const App = () => {
             <Route path="/flights/:id" element={<FlightDetailsComponent />} /> {/* Route for flight details */}
             <Route path="/flights/booking/:id" element={<FlightBookingComponent />} />
             <Route path="/error" element={<Error />} />
-
+            <Route path="/contact-us" element={<ContactUs />} />
             <Route path="/trains" element={<TrainsComponent />} />
             <Route path="/trains/:id" element={<TrainDetailsComponent />} />
             <Route path="/trains/booking/:id" element={<TrainBookingComponent />} />
